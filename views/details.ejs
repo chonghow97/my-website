@@ -9,8 +9,30 @@
       <div class="content">
         <p><%= blog.body %></p>
       </div>
+      <a class="delete" data-doc="<%= blog._id %>"> delete </a>
     </div>
 
     <%- include("./partials/footer.ejs") %>
+
+    <script>
+      const trashcan = document.querySelector("a.delete");
+
+      if (trashcan) {
+        trashcan.addEventListener("click", (e) => {
+          e.preventDefault(); // Prevent default link behavior
+          const endpoint = `/blogs/${trashcan.dataset.doc}`;
+
+          fetch(endpoint, {
+            method: "DELETE",
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              window.location.href = data.redirect; // Redirect after successful deletion
+            })
+            .catch((err) => console.log(err));
+        });
+      }
+    </script>
   </body>
 </html>

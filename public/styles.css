@@ -89,6 +89,25 @@ h3 {
   background-color: #fff; /* White background for content */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
+.details {
+  position: relative;
+}
+.delete {
+  position: absolute;
+  top: 10px; /* Adjusted top positioning */
+  right: 10px; /* Adjusted right positioning */
+  border-radius: 10%; /* Corrected typo */
+  background-color: #333; /* Red background for delete button */
+  color: white; /* White text for better contrast */
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.delete:hover {
+  background-color: #666; /* Darker red on hover */
+}
 
 /* Create styles */
 .create-blog form {
