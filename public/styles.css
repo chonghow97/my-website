@@ -97,16 +97,21 @@ h3 {
   top: 10px; /* Adjusted top positioning */
   right: 10px; /* Adjusted right positioning */
   border-radius: 10%; /* Corrected typo */
-  background-color: #333; /* Red background for delete button */
+  background-color: #333; /* Dark background for delete button */
   color: white; /* White text for better contrast */
   padding: 8px;
   border: none;
   cursor: pointer;
   font-size: 16px;
+  transition: background-color 0.3s ease; /* Smooth transition */
 }
 
 .delete:hover {
-  background-color: #666; /* Darker red on hover */
+  background-color: #666; /* Darker background on hover */
+}
+
+.delete:focus {
+  outline: 2px solid #666; /* Visible outline for focus state */
 }
 
 /* Create styles */
