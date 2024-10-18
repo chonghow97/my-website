@@ -1,34 +1,30 @@
-const path = require("path");
-
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
 module.exports = {
-  // Entry point
+  target: "node",
   entry: "./app.js",
   output: {
-    path: path.resolve(__dirname, "dist"), // Corrected output path using the path module
     filename: "bundle.js",
+    path: __dirname + "/dist",
   },
-  mode: "development",
+  mode: "production",
   module: {
     rules: [
       {
-        test: /\.js$/, // Matches JS files
-        exclude: /node_modules/, // Avoid node_modules
+        test: /\.node$/, // Add a rule to handle .node files
+        use: "node-loader",
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
         use: {
           loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
         },
       },
     ],
   },
   plugins: [new NodePolyfillPlugin()],
-  resolve: {
-    fallback: {
-      async_hooks: false,
-      // Other core modules can also be excluded similarly
-      net: false,
-      fs: false,
-      tls: false,
-    },
-  },
 };
