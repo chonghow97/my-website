@@ -42,11 +42,7 @@ Ensure you have [Node.js](https://nodejs.org/) installed.
 
 ### Starting the Application
 
-1. Start the JSON server:
-   ```bash
-   npx json-server --watch data/db.json --port 8000
-   ```
-2. Run the React application:
+1. Run the React application:
    ```bash
    npm start
    ```
